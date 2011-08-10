@@ -23,6 +23,7 @@ set(
    src/ProcessManager.cpp
    src/Process.cpp
    src/App.cpp
+   src/Engine.cpp
 )
 
 # Includes
@@ -48,6 +49,7 @@ set(
    include/ProcessManager.h
    include/Process.h
    include/App.h
+   include/Engine.h
 )
 
 # Non-System Libraries
