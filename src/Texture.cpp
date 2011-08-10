@@ -23,7 +23,12 @@ namespace TGA
 
 	bool Texture::loadTexture(std::string imgFileName)
 	{
-		SDL_Surface* image = IMG_Load(imgFileName.c_str());
+		try {
+			SDL_Surface* image = IMG_Load(imgFileName.c_str());
+		} catch(CException* e) {
+			std::cout << "Error:" << SDL_GetError() << std::endl;
+			return false;
+		}
 
 		if(image == NULL)
 		{
