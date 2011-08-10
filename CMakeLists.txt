@@ -115,6 +115,7 @@ include_directories(
 )
 
 add_library(TGAEngine
+	${INCLUDES}
 	${SOURCES}
 )
 
