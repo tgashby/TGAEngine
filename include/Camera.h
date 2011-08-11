@@ -1,12 +1,14 @@
 #pragma once
 
+#include "ProjIncludes.h"
+
 namespace TGA
 {
 	class Camera
 	{
 	public:
-		Camera(GLfloat xPos, GLfloat yPos);
-		~Camera(void);
+		Camera();
+		~Camera();
 
 		void moveOver(GLfloat xVal, GLfloat yVal);
 		void setPosition(GLfloat xPos, GLfloat yPos);

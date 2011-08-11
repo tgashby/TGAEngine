@@ -1,5 +1,14 @@
 #pragma once
 
+#include "Singleton.h"
+#include "TextureManager.h"
+#include "SoundManager.h"
+#include "AnimationManager.h"
+#include "FontManager.h"
+#include "Camera.h"
+#include "GraphicsManager.h"
+#include "InputManager.h"
+
 namespace TGA
 {
 	class Engine

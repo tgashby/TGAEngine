@@ -2,10 +2,8 @@
 
 namespace TGA
 {
-	Camera::Camera(GLfloat xPos, GLfloat yPos)
+	Camera::Camera()
 	{
-		// Set this xPos to xPos
-		// Set this yPos to yPos
 	}
 
 
