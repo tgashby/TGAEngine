@@ -5,6 +5,22 @@ cmake_minimum_required(VERSION 2.8)
 
 project(TGAEngine)
 
+macro(ADD_FRAMEWORK fwname path appname)
+	find_library(FRAMEWORK_${fwname}
+		NAMES ${fwname}
+		PATHS ${path}
+
+		PATH_SUFFIXES Frameworks
+		NO_DEFAULT_PATH
+	)
+
+	if( ${FRAMEWORK_${fwname}} STREQUAL FRAMEWORK_${fwname}-NOTFOUND)
+		message(ERROR ": Framework ${fwname} not found")
+	else()
+		target_link_libraries(${appname} ${FRAMEWORK_${fwname}})
+		message(STATUS "Framework ${fwname} found at ${FRAMEWORK_${fwname}}")
+	endif()
+endmacro(ADD_FRAMEWORK)
 # Sources
 set(
    SOURCES
