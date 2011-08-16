@@ -54,59 +54,78 @@ set(
 
 # Non-System Libraries
 
+set(
+	LIB_FOLDER
+	${CMAKE_CURRENT_SOURCE_DIR}/lib
+	CACHE STRING "Path to libraries" FORCE
+)
+
 # SDL
 set(
-   SDL_FOLDER
-   ${CMAKE_CURRENT_SOURCE_DIR}/lib/sdl-1.3
-   CACHE STRING "Path to SDL 1.3" FORCE
+	SDL_FOLDER
+	${LIB_FOLDER}/sdl-1.3
+	CACHE STRING "Path to SDL 1.3" FORCE
 )
 
 find_library(
-   SDL_LIBRARY
-   NAMES SDL-1.3.0 SDL
-   PATHS ${SDL_FOLDER}
-   PATH_SUFFIXES local/lib VisualC/SDL/Win32/Release
-   NO_DEFAULT_PATH
+	SDL_LIBRARY
+	NAMES SDL-1.3.0 SDL
+	PATHS ${SDL_FOLDER}
+	PATH_SUFFIXES Apple Win32
+	NO_DEFAULT_PATH
+)
+
+find_library(
+	SDLMAIN_LIBRARY
+	NAMES SDLmain
+	PATHS ${SDL_FOLDER}
+	PATH_SUFFIXES Apple Win32
+	NO_DEFAULT_PATH
+)
+
+find_library(
+	TGA_ENGINE_LIBRARY
+	NAMES TGAEngine
+	PATHS ${LIB_FOLDER}/TGAEngine
+	PATH_SUFFIXES Apple Win32
+	NO_DEFAULT_PATH
 )
 
 # SDL_Image
 set(
-   SDL_IMG_FOLDER
-   ${SDL_IMG_FOLDER} ${CMAKE_CURRENT_SOURCE_DIR}/lib/SDL_image
-   CACHE STRING "Path to SDL_image 1.2" FORCE
+	SDL_IMG_FOLDER
+	${LIB_FOLDER}/SDL_image
+	CACHE STRING "Path to SDL_image 1.2" FORCE
 )
 
 # System Libraries
 
 # OpenGL
 find_package(
-   OpenGL REQUIRED
+	OpenGL REQUIRED
 )
 
 # Deal with Platform Specific things
-set(
-   EXTRA_LIBS
-   ""
-)
 
 if (APPLE)
-   FIND_LIBRARY(COCOA_LIBRARY Cocoa)
-   FIND_LIBRARY(SDL_IMG_LIBRARY SDL_image)
-   MARK_AS_ADVANCED (
-		COCOA_LIBRARY
-		SDL_IMG_LIBRARY
-   )
-   SET(EXTRA_LIBS ${COCOA_LIBRARY} ${SDL_IMG_LIBRARY})
+    add_custom_command(TARGET TGAEngine
+		PRE_LINK
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${LIB_FOLDER}/SDL_image.framework /Library/SDL_image.framework
+	)
+	
+	ADD_FRAMEWORK(Cocoa /System/Libray/ Animation-Calibrator)
+	ADD_FRAMEWORK(SDL_image /Library/ Animation-Calibrator)
 endif()
 
 if(WIN32)	
-	find_library(
-	   SDL_IMG_LIBRARY
-	   NAMES SDL_image
-	   PATHS ${SDL_IMG_FOLDER}
-	   PATH_SUFFIXES lib
-	   NO_DEFAULT_PATH
-	)
+find_library(
+	SDL_IMG_LIBRARY
+	NAMES SDL_image
+	PATHS ${SDL_IMG_FOLDER}
+	PATH_SUFFIXES lib
+	NO_DEFAULT_PATH
+)
 endif()
 
 # Include the Includes
@@ -116,7 +135,7 @@ include_directories(
    ${SDL_IMG_FOLDER}/include
 )
 
-add_library(TGAEngine
+add_library(TGAEngine SHARED
 	${INCLUDES}
 	${SOURCES}
 )
