@@ -14,6 +14,7 @@ namespace TGA
 
 	Texture::Texture(std::string imgFileName)
 	{
+		fileName = imgFileName;
 		loadTexture(imgFileName);
 	}
 

@@ -8,10 +8,10 @@ namespace TGA
 
 	bool InputManager::keyDown(Key key)
 	{
-		return keystates.at(key);
+		return keystates[key];
 	}
 
-	void InputManager::update()
+	bool InputManager::update()
 	{
 		SDL_Event event;
 
@@ -29,8 +29,14 @@ namespace TGA
 
 			case SDL_MOUSEBUTTONUP:
 				SDL_GetMouseState(&mouseX, &mouseY);
+				break;
+
+			case SDL_QUIT:
+				return false;
 			}
 		}
+
+		return true;
 	}
 
 	SDL_Point InputManager::getMouseCoords()

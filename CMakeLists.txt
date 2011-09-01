@@ -40,6 +40,7 @@ set(
    src/Process.cpp
    src/App.cpp
    src/Engine.cpp
+   src/Vector2D.cpp
 )
 
 # Includes
@@ -66,6 +67,7 @@ set(
    include/Process.h
    include/App.h
    include/Engine.h
+   include/Vector2D.h
 )
 
 # Non-System Libraries
@@ -121,6 +123,11 @@ find_package(
 	OpenGL REQUIRED
 )
 
+add_library(TGAEngine STATIC
+	${INCLUDES}
+	${SOURCES}
+)
+
 # Deal with Platform Specific things
 
 if (APPLE)
@@ -130,8 +137,8 @@ if (APPLE)
         ${LIB_FOLDER}/SDL_image.framework /Library/SDL_image.framework
 	)
 	
-	ADD_FRAMEWORK(Cocoa /System/Libray/ Animation-Calibrator)
-	ADD_FRAMEWORK(SDL_image /Library/ Animation-Calibrator)
+	ADD_FRAMEWORK(Cocoa /System/Libray/ TGAEngine)
+	ADD_FRAMEWORK(SDL_image /Library/ TGAEngine)
 endif()
 
 if(WIN32)	
@@ -149,11 +156,6 @@ include_directories(
    ${CMAKE_CURRENT_SOURCE_DIR}/include
    ${SDL_FOLDER}/include
    ${SDL_IMG_FOLDER}/include
-)
-
-add_library(TGAEngine SHARED
-	${INCLUDES}
-	${SOURCES}
 )
 
 # Link all the libraries

@@ -14,15 +14,19 @@ namespace TGA
 	void Camera::moveOver(GLfloat xVal, GLfloat yVal)
 	{
 		// Update camera xPos (+=)
+		xPos += xVal;
 
 		// Update camera yPos (-=)
+		yPos = yVal;
 	}
 
 	void Camera::setPosition(GLfloat xPos, GLfloat yPos)
 	{
 		// Set xPos
+		this->xPos = xPos;
 
 		// Set yPos
+		this->yPos = yPos;
 	}
 
 	GLfloat Camera::getX()
