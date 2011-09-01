@@ -3,7 +3,7 @@
 
 namespace TGA
 {
-	Vector2D::Vector2D(double xComp, double yComp)
+	Vector2D::Vector2D(float xComp, float yComp)
 		: x(xComp), y(yComp) {}
 
 
@@ -29,19 +29,29 @@ namespace TGA
 		return Vector2D(this->x / length(), this->y / length());
 	}
 
-	double Vector2D::dotProduct(Vector2D vec2)
+	float Vector2D::dotProduct(Vector2D vec2)
 	{
 		return this->x * vec2.x + this->y * vec2.y;
 	}
 
-	double Vector2D::length()
+	float Vector2D::length()
 	{
 		return sqrt(this->x * this->x + this->y * this->y);
 	}
 
-	double Vector2D::distanceFrom(Vector2D vec2)
+	float Vector2D::distanceFrom(Vector2D vec2)
 	{
 		return (*this - vec2).length();
+	}
+
+	float Vector2D::getX()
+	{
+		return x;
+	}
+
+	float Vector2D::getY()
+	{
+		return y;
 	}
 }
 

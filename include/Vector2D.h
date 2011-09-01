@@ -5,7 +5,7 @@ namespace TGA
 	class Vector2D
 	{
 	public:
-		Vector2D(double x, double y);
+		Vector2D(float x, float y);
 		~Vector2D(void);
 
 		Vector2D operator+(Vector2D);
@@ -13,11 +13,14 @@ namespace TGA
 		Vector2D scalarProduct(int);
 		Vector2D normalize();
 
-		double dotProduct(Vector2D);
-		double length();
-		double distanceFrom(Vector2D);
+		float dotProduct(Vector2D);
+		float length();
+		float distanceFrom(Vector2D);
+
+		float getX();
+		float getY();
 
 	private:
-		double x, y;
+		float x, y;
 	};
 }
