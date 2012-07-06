@@ -56,10 +56,10 @@ namespace TGA
 	{
 		std::vector<Animation*>::iterator itr = find(animations.begin(), animations.end(), animation);
 
-		// IF the texture was not found
+		// IF the animation was not found
 		if(itr == animations.end())
 		{
-			// Tack on the texture
+			// Tack on the animation
 			animations.push_back(animation);
 		}
 		

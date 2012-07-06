@@ -25,9 +25,12 @@ namespace TGA
 	bool Texture::loadTexture(std::string imgFileName)
 	{
 		SDL_Surface* image;
-		try {
+		try 
+      {
 			image = IMG_Load(imgFileName.c_str());
-		} catch(...) {
+		} 
+      catch(...) 
+      {
 			std::cout << "Error:" << SDL_GetError() << std::endl;
 			return false;
 		}
@@ -39,7 +42,7 @@ namespace TGA
 		}
 
 		// Format the image to be more usable with OGL
-		SDL_DisplayFormatAlpha(image);
+		//SDL_DisplayFormatAlpha(image);
 
 		fileName = imgFileName;
 
