@@ -7,7 +7,7 @@ namespace TGA
 		: x(xComp), y(yComp) {}
 
 
-	Vector2D::~Vector2D(void) {}
+	Vector2D::~Vector2D() {}
 
 	Vector2D Vector2D::operator+(Vector2D vec2)
 	{

@@ -33,6 +33,20 @@ namespace TGA
 
 	void Animation::update()
 	{
+      // IF it is not running indefinitely
+      if(repetitions != -1)
+      {
+         if(repetitions == 0)
+         {
+            done = true;
+            paused = true;
+         }
+         else 
+         {
+            repetitions--;
+         }
+      }
+      
 		if(texture != NULL && !paused && !done && frames.size() > 0)	
 		{
 			// IF enough time has passed
@@ -44,20 +58,6 @@ namespace TGA
 
 				if(currFrame == frames.size())
 				{
-					// IF it is not running indefinitely
-					if(repetitions != -1)
-					{
-						if(repetitions == 0)
-						{
-							done = true;
-							paused = true;
-						}
-						else 
-						{
-							repetitions--;
-						}
-					}
-
 					currFrame = 0;
 				}
 			}
@@ -132,6 +132,11 @@ namespace TGA
 	void Animation::setRepetitions(int repetitions)
 	{
 		this->repetitions = repetitions;
+      
+      if (this->done)
+      {
+         this->reset();
+      }
 	}
 
 	void Animation::setTexture(Texture* texture)

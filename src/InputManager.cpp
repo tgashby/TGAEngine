@@ -31,6 +31,10 @@ namespace TGA
 				SDL_GetMouseState(&mouseX, &mouseY);
 				break;
 
+         case SDL_MOUSEMOTION:
+            SDL_GetMouseState(&mouseX, &mouseY);
+            break;
+
 			case SDL_QUIT:
 				return false;
 			}

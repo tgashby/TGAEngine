@@ -15,7 +15,7 @@ namespace TGA
 	}
 
 	void GraphicsManager::init(int screenWidth /* = 1024 */, int screenHeight /* = 512 */, 
-      std::string winTitle /* = "Sandstorms" */, int screenX /* = SDL_WINDOWPOS_CENTERED */, 
+      std::string winTitle /* = "" */, int screenX /* = SDL_WINDOWPOS_CENTERED */, 
       int screenY /* = SDL_WINDOWPOS_CENTERED */)
 	{
 		this->winTitle = winTitle;
@@ -57,9 +57,6 @@ namespace TGA
 			// Delete the window
 			SDL_DestroyWindow(window);
 		}
-
-		// SDL_Quit()
-		SDL_Quit();
 	}
 
 	void GraphicsManager::swapBuffers()
@@ -101,10 +98,13 @@ namespace TGA
 
 	void GraphicsManager::toggleFullScreen()
 	{
-		isFullScreen = isFullScreen == SDL_TRUE ? SDL_FALSE : SDL_FALSE;
+      if (isLoaded)
+      {
+         isFullScreen = isFullScreen == SDL_TRUE ? SDL_FALSE : SDL_FALSE;
 
-		//Call SDL_SetWindowFullscreen(window, isFullScreen)
-		SDL_SetWindowFullscreen(window, isFullScreen);
+         //Call SDL_SetWindowFullscreen(window, isFullScreen)
+         SDL_SetWindowFullscreen(window, isFullScreen);
+      }
 	}
 
 	void GraphicsManager::initGL()

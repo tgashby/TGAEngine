@@ -370,7 +370,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/XCode/build/Debug/libTGAEngine.a /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/lib/TGAEngine/";
+			shellScript = "cp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/XCode/build/Debug/libTGAEngine.a /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/lib/TGAEngine/\ncp -r /Users/tgashby/Google\\ Drive/Projects/TGAEngine/include /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/include/TGAEngine/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -405,7 +405,7 @@
 		192822D9720F728D1AD04DD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -442,7 +442,7 @@
 		58BA2A974EF67F3A536A754A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CONFIGURATION_TEMP_DIR = "$(OBJROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;

@@ -118,23 +118,13 @@ exit 0</Command>
   <ItemGroup>
     <ClInclude Include="..\include\Animation.h" />
     <ClInclude Include="..\include\AnimationManager.h" />
-    <ClInclude Include="..\include\App.h" />
     <ClInclude Include="..\include\Camera.h" />
     <ClInclude Include="..\include\Engine.h" />
-    <ClInclude Include="..\include\Font.h" />
-    <ClInclude Include="..\include\FontManager.h" />
     <ClInclude Include="..\include\GraphicsManager.h" />
     <ClInclude Include="..\include\InputManager.h" />
     <ClInclude Include="..\include\Key.h" />
-    <ClInclude Include="..\include\Process.h" />
-    <ClInclude Include="..\include\ProcessManager.h" />
     <ClInclude Include="..\include\ProjIncludes.h" />
-    <ClInclude Include="..\include\Purpose.h" />
     <ClInclude Include="..\include\Singleton.h" />
-    <ClInclude Include="..\include\Sound.h" />
-    <ClInclude Include="..\include\SoundManager.h" />
-    <ClInclude Include="..\include\State.h" />
-    <ClInclude Include="..\include\StateManager.h" />
     <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\TextureManager.h" />
     <ClInclude Include="..\include\Vector2D.h" />
@@ -203,29 +193,13 @@ exit 0</Command>
     </ClCompile>
     <ClCompile Include="..\src\AnimationManager.cpp">
     </ClCompile>
-    <ClCompile Include="..\src\App.cpp">
-    </ClCompile>
     <ClCompile Include="..\src\Camera.cpp">
     </ClCompile>
     <ClCompile Include="..\src\Engine.cpp">
     </ClCompile>
-    <ClCompile Include="..\src\Font.cpp">
-    </ClCompile>
-    <ClCompile Include="..\src\FontManager.cpp">
-    </ClCompile>
     <ClCompile Include="..\src\GraphicsManager.cpp">
     </ClCompile>
     <ClCompile Include="..\src\InputManager.cpp">
-    </ClCompile>
-    <ClCompile Include="..\src\Process.cpp">
-    </ClCompile>
-    <ClCompile Include="..\src\ProcessManager.cpp">
-    </ClCompile>
-    <ClCompile Include="..\src\Sound.cpp">
-    </ClCompile>
-    <ClCompile Include="..\src\SoundManager.cpp">
-    </ClCompile>
-    <ClCompile Include="..\src\StateManager.cpp">
     </ClCompile>
     <ClCompile Include="..\src\Texture.cpp">
     </ClCompile>

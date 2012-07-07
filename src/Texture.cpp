@@ -12,10 +12,14 @@ namespace TGA
 		height = 0;
 	}
 
-	Texture::Texture(std::string imgFileName)
+	Texture::Texture(std::string fileName)
 	{
-		fileName = imgFileName;
-		loadTexture(imgFileName);
+		this->fileName = fileName;
+		if (!loadTexture(fileName))
+		{
+         std::cout << "Error loading texture from file: " << fileName << "\n";
+         std::cout << "Texture not loaded. Retry with texture.loadTexture(fileName)\n";
+		}
 	}
 
 	Texture::~Texture()
@@ -67,14 +71,14 @@ namespace TGA
 		return true;
 	}
 
+   bool Texture::reset()
+   {
+      return loadTexture(this->fileName);
+   }
+
 	void Texture::deleteMe()
 	{
 		Singleton<TextureManager>::GetSingletonPtr()->removeTexture(this);
-	}
-
-	void Texture::reset()
-	{
-		loadTexture(fileName);
 	}
 
 	void Texture::draw(GLfloat xPos, GLfloat yPos)
