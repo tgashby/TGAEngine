@@ -14,15 +14,15 @@ namespace TGA
 		shutDown();
 	}
 
-	void GraphicsManager::init(int screenWidth /*= 1024*/, int screenHeight /*= 512*/, 
-	 std::string winTitle /*= "Sandstorms"*/)
+	void GraphicsManager::init(int screenWidth /* = 1024 */, int screenHeight /* = 512 */, 
+      std::string winTitle /* = "Sandstorms" */, int screenX /* = SDL_WINDOWPOS_CENTERED */, 
+      int screenY /* = SDL_WINDOWPOS_CENTERED */)
 	{
 		this->winTitle = winTitle;
 		this->screenWidth = screenWidth;
 		this->screenHeight = screenHeight;
 
-		// Call SDL_INIT(SDL_EVERYTHING)
-		SDL_Init(SDL_INIT_EVERYTHING);
+		SDL_Init(SDL_INIT_VIDEO);
 
 		// Set the SDL GL Attributes
 		SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
@@ -34,7 +34,7 @@ namespace TGA
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 		// Create the window
-		window = SDL_CreateWindow(winTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+		window = SDL_CreateWindow(winTitle.c_str(), screenX, screenY, 
 			screenWidth, screenHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
 		// Create the GL context

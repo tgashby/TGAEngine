@@ -31,13 +31,13 @@ namespace TGA
 		} 
       catch(...) 
       {
-			std::cout << "Error:" << SDL_GetError() << std::endl;
+			std::cout << "Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
 
 		if(image == NULL)
 		{
-			std::cout << "Error:" << SDL_GetError() << std::endl;
+			std::cout << "Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
 

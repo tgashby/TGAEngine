@@ -11,7 +11,7 @@ namespace TGA
 		~GraphicsManager();
 
 		void init(int screenWidth = 1024, int screenHeight = 512, 
-		 std::string winTitle = "Sandstorms");
+		 std::string winTitle = "Sandstorms", int screenX = SDL_WINDOWPOS_CENTERED, int screenY = SDL_WINDOWPOS_CENTERED);
 
 		void shutDown();
 

@@ -182,7 +182,7 @@ namespace TGA
 			frameStr << "Frame: " << ndx << "\n"
 				 << "X: " << frames.at(ndx).first.x << "  Y: " << frames.at(ndx).first.y << "\n" 
 				 << "Width: " << frames.at(ndx).first.w << "  Height: " << frames.at(ndx).first.h << "\n"
-				 << "Delay: " << frames.at(ndx).second << "\n";
+				 << "Delay: " << frames.at(ndx).second << "\n\n";
 		}
 
 		return frameStr.str();
