@@ -74,19 +74,16 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>copy /y $(OutDir)TGAEngine.lib $(OutDir)..\..\Animation-Calibrator\lib\TGAEngine
-robocopy /s "$(OutDir)obj" "$(OutDir)..\..\Animation-Calibrator\lib\TGAEngine\obj"
-robocopy "$(OutDir)..\include"  "$(OutDir)..\..\Animation-Calibrator\include\TGAEngine"
-exit 0</Command>
-      <Message>Copying Library to Animation-Calibrator</Message>
-    </PostBuildEvent>
+    <PostBuildEvent />
     <CustomBuildStep>
       <Command>
       </Command>
       <Outputs>
       </Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)TGAEngine.lib $(OutDir)..\..\Animation-Calibrator\lib\TGAEngine</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -114,6 +111,9 @@ exit 0</Command>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)TGAEngine.lib $(OutDir)..\..\Animation-Calibrator\lib\TGAEngine</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Animation.h" />

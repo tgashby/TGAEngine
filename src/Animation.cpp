@@ -33,20 +33,6 @@ namespace TGA
 
 	void Animation::update()
 	{
-      // IF it is not running indefinitely
-      if(repetitions != -1)
-      {
-         if(repetitions == 0)
-         {
-            done = true;
-            paused = true;
-         }
-         else 
-         {
-            repetitions--;
-         }
-      }
-      
 		if(texture != NULL && !paused && !done && frames.size() > 0)	
 		{
 			// IF enough time has passed
@@ -55,6 +41,20 @@ namespace TGA
 				currFrame++;
 
 				lastUpdate = SDL_GetPerformanceCounter();
+
+            // IF it is not running indefinitely
+            if(repetitions != -1)
+            {
+               if(repetitions == 0)
+               {
+                  done = true;
+                  paused = true;
+               }
+               else 
+               {
+                  repetitions--;
+               }
+            }
 
 				if(currFrame == frames.size())
 				{
@@ -177,6 +177,11 @@ namespace TGA
 	{
 		return frames.size();
 	}
+   
+   SDL_Rect Animation::getCurrentFrameDimensions()
+   {
+      return frames.at(currFrame).first;
+   }
 
 	std::string Animation::printFrames()
 	{

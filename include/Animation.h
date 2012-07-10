@@ -192,6 +192,14 @@ namespace TGA
 		* @return GLuint - the number of frames in the Animation.
 		*/
 		GLuint getFrameCount();
+      
+      /**
+       * getCurrentFrameDimensions()
+       *
+       * Gets the current frame's dimensions
+       * @return SDL_Rect - the rectangle determinging it's position and dimensions
+       */
+      SDL_Rect getCurrentFrameDimensions();
 
 		/**
 		* printFrames
