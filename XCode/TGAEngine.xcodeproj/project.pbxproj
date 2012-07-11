@@ -326,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/XCode/build/Debug/libTGAEngine.a /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/lib/TGAEngine/\ncp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/include/* /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/include/TGAEngine/";
+			shellScript = "cp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/XCode/build/Debug/libTGAEngine.a /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/lib/TGAEngine/\ncp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/include/* /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/include/TGAEngine/\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 

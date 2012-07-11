@@ -8,7 +8,7 @@ namespace TGA
 		texture = NULL;
 
 		currFrame = 0;
-		lastUpdate = SDL_GetPerformanceCounter();
+		lastUpdate = SDL_GetTicks();
 		paused = false;
 		done = false;
 		repetitions = 0;
@@ -21,7 +21,7 @@ namespace TGA
 		this->texture = texture;
 
 		currFrame = 0;
-		lastUpdate = SDL_GetPerformanceCounter();
+		lastUpdate = SDL_GetTicks();
 		paused = false;
 		done = false;
 		repetitions = 0;
@@ -36,29 +36,30 @@ namespace TGA
 		if(texture != NULL && !paused && !done && frames.size() > 0)	
 		{
 			// IF enough time has passed
-			if(frames.at(currFrame).second < (SDL_GetPerformanceCounter() - lastUpdate))
+         Uint32 timePassed =  (SDL_GetTicks() - lastUpdate);
+			if(timePassed > frames.at(currFrame).second)
 			{
 				currFrame++;
 
-				lastUpdate = SDL_GetPerformanceCounter();
-
-            // IF it is not running indefinitely
-            if(repetitions != -1)
-            {
-               if(repetitions == 0)
-               {
-                  done = true;
-                  paused = true;
-               }
-               else 
-               {
-                  repetitions--;
-               }
-            }
+				lastUpdate = SDL_GetTicks();            
 
 				if(currFrame == frames.size())
 				{
 					currFrame = 0;
+               
+               // IF it is not running indefinitely
+               if(repetitions != -1)
+               {
+                  if(repetitions == 0)
+                  {
+                     done = true;
+                     paused = true;
+                  }
+                  else 
+                  {
+                     repetitions--;
+                  }
+               }
 				}
 			}
 		}
@@ -73,7 +74,7 @@ namespace TGA
 	{
 		paused = false;
 
-		lastUpdate = SDL_GetPerformanceCounter();
+		lastUpdate = SDL_GetTicks();
 	}
 
 	void Animation::reset()
@@ -83,7 +84,7 @@ namespace TGA
 		done = false;
 		paused = false;
 
-		lastUpdate = SDL_GetPerformanceCounter();
+		lastUpdate = SDL_GetTicks();
 	}
 
 	bool Animation::isDone()
@@ -125,13 +126,15 @@ namespace TGA
 		{
 			currFrame = frame;
 			
-			lastUpdate = SDL_GetPerformanceCounter();
+			lastUpdate = SDL_GetTicks();
 		}
 	}
 
 	void Animation::setRepetitions(int repetitions)
 	{
-		this->repetitions = repetitions;
+      // This looks weird, I know. The way update is running, you get a "free"
+      // full cycle, that's why I'm subtracting one from repetitions.
+		this->repetitions = repetitions - 1;
       
       if (this->done)
       {
