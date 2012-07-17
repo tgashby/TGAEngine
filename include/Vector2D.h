@@ -26,7 +26,6 @@ namespace TGA
 		* Creates a Vector2D
 		* @param float x - the x component of the vector
 		* @param float y - the y component of the vector
-		* @return  -
 		*/
 		Vector2D(float x, float y);
 		~Vector2D();

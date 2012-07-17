@@ -1,4 +1,4 @@
-#include "../include/InputManager.h"
+#include "InputManager.h"
 
 namespace TGA
 {
@@ -37,6 +37,10 @@ namespace TGA
 
 			case SDL_QUIT:
 				return false;
+
+         default:
+            std::cout << "Unknown event type: " << event.type;
+            break;
 			}
 		}
 

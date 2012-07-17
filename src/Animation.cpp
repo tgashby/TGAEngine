@@ -1,5 +1,5 @@
-#include "../include/Animation.h"
-#include "../include/AnimationManager.h"
+#include "Animation.h"
+#include "AnimationManager.h"
 
 namespace TGA
 {
@@ -18,6 +18,7 @@ namespace TGA
 
 	Animation::Animation(Texture* texture)
 	{
+      assert(texture);
 		this->texture = texture;
 
 		currFrame = 0;
@@ -36,8 +37,7 @@ namespace TGA
 		if(texture != NULL && !paused && !done && frames.size() > 0)	
 		{
 			// IF enough time has passed
-         Uint32 timePassed =  (SDL_GetTicks() - lastUpdate);
-			if(timePassed > frames.at(currFrame).second)
+			if((SDL_GetTicks() - lastUpdate) > frames.at(currFrame).second)
 			{
 				currFrame++;
 
@@ -72,9 +72,12 @@ namespace TGA
 	
 	void Animation::resume()
 	{
-		paused = false;
+      if (paused)
+      {
+         paused = false;
 
-		lastUpdate = SDL_GetTicks();
+         lastUpdate = SDL_GetTicks();
+      }
 	}
 
 	void Animation::reset()
@@ -136,15 +139,15 @@ namespace TGA
       // full cycle, that's why I'm subtracting one from repetitions.
 		this->repetitions = repetitions - 1;
       
-      if (this->done)
+      if (done)
       {
-         this->reset();
+         reset();
       }
 	}
 
 	void Animation::setTexture(Texture* texture)
 	{
-		delete this->texture;
+		this->texture->deleteMe();
 
 		this->texture = texture;
 	}
@@ -200,5 +203,4 @@ namespace TGA
 
 		return frameStr.str();
 	}
-
 }

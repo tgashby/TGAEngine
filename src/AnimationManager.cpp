@@ -78,8 +78,10 @@ namespace TGA
 			}
 			else
 			{
+            // Replace the texture with the last one in the list
 				*itr = animations.at(animations.size() - 1);
 
+            // Remove the duplicate last entry
 				animations.erase(animations.end() - 1);
 			}
 		}

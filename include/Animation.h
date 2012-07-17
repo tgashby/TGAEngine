@@ -197,7 +197,7 @@ namespace TGA
        * getCurrentFrameDimensions()
        *
        * Gets the current frame's dimensions
-       * @return SDL_Rect - the rectangle determinging it's position and dimensions
+       * @return SDL_Rect - the rectangle determining it's position and dimensions
        */
       SDL_Rect getCurrentFrameDimensions();
 

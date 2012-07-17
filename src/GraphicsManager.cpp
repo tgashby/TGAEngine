@@ -30,7 +30,6 @@ namespace TGA
       if((initted & flags) != flags) {
          printf("IMG_Init: Failed to init required jpg and png support!\n");
          printf("IMG_Init: %s\n", IMG_GetError());
-         // handle error
       }
 
 		// Set the SDL GL Attributes

@@ -1,5 +1,5 @@
-#include "../include/Texture.h"
-#include "../include/TextureManager.h"
+#include "Texture.h"
+#include "TextureManager.h"
 
 namespace TGA
 {
@@ -29,6 +29,7 @@ namespace TGA
 	bool Texture::loadTexture(std::string imgFileName)
 	{
 		SDL_Surface* image;
+
 		try 
       {
 			image = IMG_Load(imgFileName.c_str());
@@ -107,25 +108,25 @@ namespace TGA
 
 		glPushMatrix();
 
-		glEnable(GL_TEXTURE_2D);
+		   glEnable(GL_TEXTURE_2D);
 
-		glBindTexture(GL_TEXTURE_2D, texture);
+		   glBindTexture(GL_TEXTURE_2D, texture);
 
-		glBegin(GL_QUADS);
+		   glBegin(GL_QUADS);
 
-			glTexCoord2f(0.0f, 0.0f);
-			glVertex2f(xPos, yPos);
+			   glTexCoord2f(0.0f, 0.0f);
+			   glVertex2f(xPos, yPos);
 
-			glTexCoord2f(1.0f, 0.0f);
-			glVertex2f(xPos + width, yPos);
+			   glTexCoord2f(1.0f, 0.0f);
+			   glVertex2f(xPos + width, yPos);
 
-			glTexCoord2f(1.0f, 1.0f);
-			glVertex2f(xPos + width, yPos + height);
+			   glTexCoord2f(1.0f, 1.0f);
+			   glVertex2f(xPos + width, yPos + height);
 			
-			glTexCoord2f(0.0f, 1.0f);
-			glVertex2f(xPos, yPos + height);
+			   glTexCoord2f(0.0f, 1.0f);
+			   glVertex2f(xPos, yPos + height);
 
-		glEnd();
+		   glEnd();
 
 		glPopMatrix();
 	}
@@ -147,25 +148,25 @@ namespace TGA
 
 		glPushMatrix();
 
-		glEnable(GL_TEXTURE_2D);
+		   glEnable(GL_TEXTURE_2D);
 
-		glBindTexture(GL_TEXTURE_2D, texture);
+		   glBindTexture(GL_TEXTURE_2D, texture);
 
-		glBegin(GL_QUADS);
+		   glBegin(GL_QUADS);
 
-			glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
-			glVertex2f(xPos, yPos);
+			   glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
+			   glVertex2f(xPos, yPos);
 
-			glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
-			glVertex2f(xPos + sectWidth, yPos);
+			   glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
+			   glVertex2f(xPos + sectWidth, yPos);
 
-			glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
-			glVertex2f(xPos + sectWidth, yPos + sectHeight);
+			   glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
+			   glVertex2f(xPos + sectWidth, yPos + sectHeight);
 
-			glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
-			glVertex2f(xPos, yPos + sectHeight);
+			   glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
+			   glVertex2f(xPos, yPos + sectHeight);
 
-		glEnd();
+		   glEnd();
 
 		glPopMatrix();
 	}
