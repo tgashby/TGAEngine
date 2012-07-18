@@ -30,6 +30,15 @@ namespace TGA
 		Vector2D(float x, float y);
 		~Vector2D();
 
+     /**
+      * operator+=
+      *
+      * Add a vector to the current vector.
+      * @param const Vector2D - the right hand side
+      * @return Vector2D& - reference to the new vector
+      */
+      Vector2D& operator+=(const Vector2D);
+
 		/**
 		* operator+
 		*
@@ -38,6 +47,15 @@ namespace TGA
       * @return TGA::Vector2D - the new Vector2D that is the result
 		*/
 		Vector2D operator+(Vector2D);
+      
+      /**
+      * operator-=
+      *
+      * Subtract a vector to the current vector.
+      * @param const Vector2D - the right hand side
+      * @return Vector2D& - reference to the new vector
+      */
+      Vector2D& operator-=(const Vector2D);
 
 		/**
 		* operator-
@@ -106,6 +124,10 @@ namespace TGA
 		* @return float - the Y component
 		*/
 		float getY();
+
+      void setX(float x);
+
+      void setY(float y);
 
 	private:
 		float x, y;

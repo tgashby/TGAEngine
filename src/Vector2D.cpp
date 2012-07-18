@@ -9,14 +9,38 @@ namespace TGA
 
 	Vector2D::~Vector2D() {}
 
+   Vector2D& Vector2D::operator+=(Vector2D rhs)
+   {
+      this->x = this->x + rhs.x;
+      this->y = this->y + rhs.y;
+
+      return *this;
+   }
+
 	Vector2D Vector2D::operator+(Vector2D vec2)
 	{
-		return Vector2D(this->x + vec2.x, this->y + vec2.y);
+      Vector2D result = *this;
+
+      result += vec2;
+
+      return result;
 	}
+
+   Vector2D& Vector2D::operator-=(Vector2D rhs)
+   {
+      this->x = this->x - rhs.x;
+      this->y = this->y - rhs.y;
+
+      return *this;
+   }
 
 	Vector2D Vector2D::operator-(Vector2D vec2)
 	{
-		return Vector2D(this->x - vec2.x, this->y - vec2.y);
+      Vector2D result = *this;
+
+      result -= vec2;
+
+		return result;
 	}
 
 	Vector2D Vector2D::scalarProduct(int mult)
@@ -53,5 +77,15 @@ namespace TGA
 	{
 		return y;
 	}
+
+   void Vector2D::setX(float x)
+   {
+      this->x = x;
+   }
+
+   void Vector2D::setY(float y)
+   {
+      this->y = y;
+   }
 }
 

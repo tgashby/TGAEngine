@@ -82,7 +82,10 @@
       </Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>copy $(OutDir)TGAEngine.lib $(OutDir)..\..\Animation-Calibrator\lib\TGAEngine</Command>
+      <Command>copy $(OutDir)TGAEngine.lib $(OutDir)..\..\Libraries\TGAEngine\lib
+robocopy /s $(OutDir)obj\ $(OutDir)..\..\Libraries\TGAEngine\lib\obj\
+robocopy $(OutDir)..\include\ $(OutDir)..\..\Libraries\TGAEngine\include\ *.h
+exit 0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,13 +115,17 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)TGAEngine.lib $(OutDir)..\..\Animation-Calibrator\lib\TGAEngine</Command>
+      <Command>copy $(OutDir)TGAEngine.lib $(OutDir)..\..\Libraries\TGAEngine\lib
+robocopy $(OutDir)..\include\ $(OutDir)..\..\Libraries\TGAEngine\include\ *.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Animation.h" />
     <ClInclude Include="..\include\AnimationManager.h" />
+    <ClInclude Include="..\include\BoundingBox.h" />
     <ClInclude Include="..\include\Camera.h" />
+    <ClInclude Include="..\include\Collidable.h" />
+    <ClInclude Include="..\include\Collision.h" />
     <ClInclude Include="..\include\Engine.h" />
     <ClInclude Include="..\include\GraphicsManager.h" />
     <ClInclude Include="..\include\InputManager.h" />
@@ -193,8 +200,11 @@
     </ClCompile>
     <ClCompile Include="..\src\AnimationManager.cpp">
     </ClCompile>
+    <ClCompile Include="..\src\BoundingBox.cpp" />
     <ClCompile Include="..\src\Camera.cpp">
     </ClCompile>
+    <ClCompile Include="..\src\Collidable.cpp" />
+    <ClCompile Include="..\src\Collision.cpp" />
     <ClCompile Include="..\src\Engine.cpp">
     </ClCompile>
     <ClCompile Include="..\src\GraphicsManager.cpp">

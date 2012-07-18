@@ -228,6 +228,15 @@
     <ClInclude Include="..\include\SDL_image\SDL_image.h">
       <Filter>include\SDL_image</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\BoundingBox.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Collidable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Collision.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Animation.cpp">
@@ -255,6 +264,15 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Vector2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BoundingBox.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collidable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collision.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
