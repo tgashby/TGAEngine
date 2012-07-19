@@ -8,8 +8,12 @@
 
 #include "Collidable.h"
 
-
-TGA::BoundingBox TGA::Collidable::getBounds()
+namespace TGA
 {
-   return bounds;
+   BoundingBox Collidable::getBounds()
+   {
+      return bounds;
+   }
 }
+
+

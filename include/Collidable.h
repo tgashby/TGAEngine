@@ -16,7 +16,6 @@ namespace TGA
     *
     * @brief "Interface" to attach to anything that can be collided with.
     *
-    *
     */
    class Collidable 
    {
@@ -27,7 +26,17 @@ namespace TGA
       * Updates the collidable entity based on what it collided with.
       * @param Collidable collidedWith - the collidable entity collided with
       */
-      virtual void handleCollision (Collidable collidedWith) = 0;
+      virtual void handleCollision (Collidable& collidedWith) = 0;
+
+      
+      /**
+      * getType
+      *
+      * Returns the type of this collidable.
+      * @warning up to you to keep your IDs unique.
+      * @return int - the unique specifier for this Collidable.
+      */
+      virtual int getType() = 0;
 
       /**
       * getBounds
@@ -35,9 +44,10 @@ namespace TGA
       * Returns the boundaries of this collidable.
       * @return TGA::BoundingBox - the bounds of the collidable
       */
-      TGA::BoundingBox getBounds ();
+      BoundingBox getBounds ();
 
-   private:
+   protected:
       BoundingBox bounds;
+      int id;
    };
 }

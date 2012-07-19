@@ -39,7 +39,7 @@ namespace TGA
       * @param TGA::Collidable c1 - the first entity
       * @param TGA::Collidable c2 - the second entity
       */
-      static void handleCollisions (Collidable c1, Collidable c2);
+      static void handleCollisions (Collidable& c1, Collidable& c2);
    };
 }
 

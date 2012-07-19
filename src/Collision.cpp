@@ -8,12 +8,23 @@
 
 #include "Collision.h"
 
-bool TGA::Collision::checkCollision( BoundingBox b1, BoundingBox b2 )
+namespace TGA
 {
+   bool Collision::checkCollision(BoundingBox b1, BoundingBox b2)
+   {
+      if (SDL_HasIntersection(&b1.bounds, &b2.bounds))
+      {
+         return true;
+      }
+      return false;
+   }
 
-}
-
-void TGA::Collision::handleCollisions( Collidable c1, Collidable c2 )
-{
-
+   void Collision::handleCollisions(Collidable& c1, Collidable& c2)
+   {
+      if (checkCollision(c1.getBounds(), c2.getBounds()))
+      {
+         c1.handleCollision(c2);
+         c2.handleCollision(c1);
+      }
+   }
 }

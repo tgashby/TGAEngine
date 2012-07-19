@@ -21,6 +21,9 @@ namespace TGA
     */
    class BoundingBox 
    {
+
+   friend class Collision;
+
    public:
       /**
       * BoundingBox
@@ -48,6 +51,22 @@ namespace TGA
       * @return int - the box height
       */
       int getHeight ();
+
+      /**
+      * getX
+      *
+      * Gets the box's x value.
+      * @return int - the x value
+      */
+      int getX ();
+
+      /**
+      * getY
+      *
+      * Gets the box's y value.
+      * @return int - the y value
+      */
+      int getY ();
 
       /**
       * setX

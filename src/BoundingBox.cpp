@@ -8,28 +8,44 @@
 
 #include "BoundingBox.h"
 
-
-BoundingBox::BoundingBox( int x, int y, int width, int height )
+namespace TGA
 {
+   BoundingBox::BoundingBox( int x, int y, int width, int height )
+   {
+      bounds.x = x;
+      bounds.y = y;
+      bounds.w = width;
+      bounds.h = height;
+   }
 
-}
+   int BoundingBox::getWidth()
+   {
+      return bounds.w;
+   }
 
-int BoundingBox::getWidth()
-{
+   int BoundingBox::getHeight()
+   {
+      return bounds.h;
+   }
 
-}
+   int BoundingBox::getX()
+   {
+      return bounds.x;
+   }
 
-int BoundingBox::getHeight()
-{
+   int BoundingBox::getY()
+   {
+      return bounds.y;
+   }
 
-}
+   void BoundingBox::setX( int newX )
+   {
+      bounds.x = newX;
+   }
 
-void BoundingBox::setX( int newX )
-{
-
-}
-
-void BoundingBox::setY( int newY )
-{
+   void BoundingBox::setY( int newY )
+   {
+      bounds.y = newY;
+   }
 
 }
