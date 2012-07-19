@@ -14,6 +14,11 @@ namespace TGA
    {
       return bounds;
    }
+
+   Collidable::Collidable( BoundingBox b )
+      : bounds(b)
+   {
+   }
 }
 
 

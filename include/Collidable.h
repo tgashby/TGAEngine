@@ -20,6 +20,8 @@ namespace TGA
    class Collidable 
    {
    public:
+      Collidable(BoundingBox b);
+
       /**
       * handleCollision
       *
@@ -27,16 +29,6 @@ namespace TGA
       * @param Collidable collidedWith - the collidable entity collided with
       */
       virtual void handleCollision (Collidable& collidedWith) = 0;
-
-      
-      /**
-      * getType
-      *
-      * Returns the type of this collidable.
-      * @warning up to you to keep your IDs unique.
-      * @return int - the unique specifier for this Collidable.
-      */
-      virtual int getType() = 0;
 
       /**
       * getBounds
@@ -48,6 +40,5 @@ namespace TGA
 
    protected:
       BoundingBox bounds;
-      int id;
    };
 }
