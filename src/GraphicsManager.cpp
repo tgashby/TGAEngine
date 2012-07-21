@@ -117,23 +117,29 @@ namespace TGA
 
 	void GraphicsManager::initGL()
 	{
-		glMatrixMode(GL_PROJECTION);
+      glShadeModel( GL_SMOOTH );
+      glClearColor( 0.5f, 0.5f, 0.5f, 0.0f );
+      glClearDepth( 0.0f );
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+      //glEnable( GL_DEPTH_TEST );
+      //glDepthFunc( GL_ALWAYS );
+      //glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
 
-		glLoadIdentity();
+      glDisable(GL_LIGHTING);
 
-		glOrtho(0.0, screenWidth, screenHeight, 0.0, -1, 1);
+      glDisable( GL_DEPTH_TEST );
 
-		glDisable(GL_DEPTH_TEST);
+      glEnable(GL_BLEND);
+      glEnable(GL_TEXTURE_2D);
 
-		glClearColor(1, 1, 1, 1);
+      //setup ortho mode
+      glMatrixMode(GL_PROJECTION);
+      glPushMatrix();
+      glLoadIdentity();
 
-		glShadeModel(GL_SMOOTH);
-
-		glMatrixMode(GL_MODELVIEW);
-
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		glLoadIdentity();
+      glOrtho(0, (GLfloat)screenWidth, (GLfloat)screenHeight, 0.0, -1, 1);
+      glMatrixMode(GL_MODELVIEW);
+      glPushMatrix();
+      glLoadIdentity();
 	}
 }

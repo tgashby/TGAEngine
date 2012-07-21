@@ -39,7 +39,7 @@ namespace TGA
 				return false;
 
          default:
-            std::cout << "Unknown event type: " << event.type;
+            //std::cout << "Unknown event type: " << event.type;
             break;
 			}
 		}

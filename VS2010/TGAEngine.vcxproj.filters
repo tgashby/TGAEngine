@@ -237,6 +237,9 @@
     <ClInclude Include="..\include\Collision.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Timer.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Animation.cpp">
@@ -273,6 +276,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Collision.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Timer.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

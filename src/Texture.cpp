@@ -104,13 +104,11 @@ namespace TGA
 
 	void Texture::draw(GLfloat xPos, GLfloat yPos)
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
-
 		glPushMatrix();
 
-		   glEnable(GL_TEXTURE_2D);
+         glBindTexture(GL_TEXTURE_2D, texture);
 
-		   glBindTexture(GL_TEXTURE_2D, texture);
+         glLoadIdentity();
 
 		   glBegin(GL_QUADS);
 
@@ -128,6 +126,8 @@ namespace TGA
 
 		   glEnd();
 
+         glColor3f(1.0f, 1.0f, 1.0f);
+
 		glPopMatrix();
 	}
 
@@ -138,19 +138,15 @@ namespace TGA
 
 	void Texture::drawSection(GLfloat xPos, GLfloat yPos, int sectX, int sectY, int sectWidth, int sectHeight)
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		glMatrixMode(GL_TEXTURE);
-		
-		glLoadIdentity();
-		
-		glScalef(1/(GLfloat)width, 1/(GLfloat)height, 1);
-
 		glPushMatrix();
 
-		   glEnable(GL_TEXTURE_2D);
+         glMatrixMode(GL_TEXTURE);
 
-		   glBindTexture(GL_TEXTURE_2D, texture);
+         glLoadIdentity();
+
+         glScalef(1/(GLfloat)width, 1/(GLfloat)height, 1);
+
+         glBindTexture(GL_TEXTURE_2D, texture);
 
 		   glBegin(GL_QUADS);
 
@@ -167,6 +163,8 @@ namespace TGA
 			   glVertex2f(xPos, yPos + sectHeight);
 
 		   glEnd();
+
+         glColor3f(1.0f, 1.0f, 1.0f);
 
 		glPopMatrix();
 	}

@@ -134,6 +134,7 @@ robocopy $(OutDir)..\include\ $(OutDir)..\..\Libraries\TGAEngine\include\ *.h</C
     <ClInclude Include="..\include\Singleton.h" />
     <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\TextureManager.h" />
+    <ClInclude Include="..\include\Timer.h" />
     <ClInclude Include="..\include\Vector2D.h" />
     <ClInclude Include="..\include\SDL\begin_code.h" />
     <ClInclude Include="..\include\SDL\close_code.h" />
@@ -215,6 +216,7 @@ robocopy $(OutDir)..\include\ $(OutDir)..\..\Libraries\TGAEngine\include\ *.h</C
     </ClCompile>
     <ClCompile Include="..\src\TextureManager.cpp">
     </ClCompile>
+    <ClCompile Include="..\src\Timer.cpp" />
     <ClCompile Include="..\src\Vector2D.cpp">
     </ClCompile>
   </ItemGroup>

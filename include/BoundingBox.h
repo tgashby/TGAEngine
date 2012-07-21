@@ -16,8 +16,7 @@ namespace TGA
     *
     * @brief Represents the boundaries of an entity.
     *
-    * The width and height of a bounding box should not change,
-    * and that's why there's no methods for setting those values.
+    * Really just wraps an SDL_Rect.
     */
    class BoundingBox 
    {
@@ -37,20 +36,11 @@ namespace TGA
       BoundingBox(int x, int y, int width, int height);
 
       /**
-      * getWidth
+      * BoundingBox
       *
-      * Get the box's width.
-      * @return int - the box width
+      * Default constructor, 0's for all values.
       */
-      int getWidth ();
-
-      /**
-      * getHeight
-      *
-      * Gets the box's height.
-      * @return int - the box height
-      */
-      int getHeight ();
+      BoundingBox();
 
       /**
       * getX
@@ -69,6 +59,22 @@ namespace TGA
       int getY ();
 
       /**
+      * getWidth
+      *
+      * Get the box's width.
+      * @return int - the box width
+      */
+      int getWidth ();
+
+      /**
+      * getHeight
+      *
+      * Gets the box's height.
+      * @return int - the box height
+      */
+      int getHeight ();
+
+      /**
       * setX
       *
       * Set the box's x position.
@@ -83,6 +89,22 @@ namespace TGA
       * @param int newY - the new y position
       */
       void setY (int newY);
+
+      /**
+      * setX
+      *
+      * Set the box's x position.
+      * @param int newX - the new x position
+      */
+      void setWidth (int newWidth);
+
+      /**
+      * setY
+      *
+      * Sets the box's y position.
+      * @param int newY - the new y position
+      */
+      void setHeight (int newHeight);
 
    private:
       SDL_Rect bounds;

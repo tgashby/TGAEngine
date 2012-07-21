@@ -18,14 +18,12 @@ namespace TGA
       bounds.h = height;
    }
 
-   int BoundingBox::getWidth()
+   BoundingBox::BoundingBox()
    {
-      return bounds.w;
-   }
-
-   int BoundingBox::getHeight()
-   {
-      return bounds.h;
+      bounds.x = 0;
+      bounds.y = 0;
+      bounds.w = 0;
+      bounds.h = 0;
    }
 
    int BoundingBox::getX()
@@ -38,6 +36,16 @@ namespace TGA
       return bounds.y;
    }
 
+   int BoundingBox::getWidth()
+   {
+      return bounds.w;
+   }
+
+   int BoundingBox::getHeight()
+   {
+      return bounds.h;
+   }
+
    void BoundingBox::setX( int newX )
    {
       bounds.x = newX;
@@ -48,4 +56,13 @@ namespace TGA
       bounds.y = newY;
    }
 
+   void BoundingBox::setWidth(int newWidth)
+   {
+      bounds.w = newWidth;
+   }
+
+   void BoundingBox::setHeight(int newHeight)
+   {
+      bounds.h = newHeight;
+   }
 }

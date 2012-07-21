@@ -50,7 +50,9 @@ namespace TGA
                // IF it is not running indefinitely
                if(repetitions != -1)
                {
-                  if(repetitions == 0)
+                  // This looks weird, I know. The way update is running, you get a "free"
+                  // full cycle, that's why I check 1 instead of 0.
+                  if(repetitions == 1) 
                   {
                      done = true;
                      paused = true;
@@ -105,7 +107,7 @@ namespace TGA
 		Singleton<AnimationManager>::GetSingletonPtr()->removeAnimation(this);
 	}
 
-	void Animation::addFrame(SDL_Rect frameRect, Uint32 delay)
+	void Animation::addFrame(BoundingBox frameRect, Uint32 delay)
 	{
 		frames.push_back(std::make_pair(frameRect, delay));
 	}
@@ -134,10 +136,8 @@ namespace TGA
 	}
 
 	void Animation::setRepetitions(int repetitions)
-	{
-      // This looks weird, I know. The way update is running, you get a "free"
-      // full cycle, that's why I'm subtracting one from repetitions.
-		this->repetitions = repetitions - 1;
+   {
+		this->repetitions = repetitions;
       
       if (done)
       {
@@ -160,7 +160,7 @@ namespace TGA
 		}
 	}
 	
-	void Animation::setFrameBounds(GLuint frame, SDL_Rect newBounds)
+	void Animation::setFrameBounds(GLuint frame, BoundingBox newBounds)
 	{
 		if(frame < frames.size())
 		{
@@ -173,9 +173,10 @@ namespace TGA
 		// IF the texture exists
 		if(texture != NULL && frames.size() > 0)
 		{
-			SDL_Rect tempRect = frames.at(currFrame).first;
+			BoundingBox tempRect = frames.at(currFrame).first;
 
-			texture->drawSection(xPos, yPos, tempRect.x, tempRect.y, tempRect.w, tempRect.h);
+			texture->drawSection(xPos, yPos, tempRect.getX(), tempRect.getY(), 
+            tempRect.getWidth(), tempRect.getHeight());
 		}
 	}
 
@@ -184,7 +185,7 @@ namespace TGA
 		return frames.size();
 	}
    
-   SDL_Rect Animation::getCurrentFrameDimensions()
+   BoundingBox Animation::getCurrentFrameDimensions()
    {
       return frames.at(currFrame).first;
    }
@@ -196,8 +197,8 @@ namespace TGA
 		for(unsigned int ndx = 0; ndx < frames.size(); ndx++)
 		{
 			frameStr << "Frame: " << ndx << "\n"
-				 << "X: " << frames.at(ndx).first.x << "  Y: " << frames.at(ndx).first.y << "\n" 
-				 << "Width: " << frames.at(ndx).first.w << "  Height: " << frames.at(ndx).first.h << "\n"
+				 << "X: " << frames.at(ndx).first.getX() << "  Y: " << frames.at(ndx).first.getY() << "\n" 
+				 << "Width: " << frames.at(ndx).first.getWidth() << "  Height: " << frames.at(ndx).first.getHeight() << "\n"
 				 << "Delay: " << frames.at(ndx).second << "\n\n";
 		}
 

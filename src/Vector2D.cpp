@@ -43,7 +43,7 @@ namespace TGA
 		return result;
 	}
 
-	Vector2D Vector2D::scalarProduct(int mult)
+	Vector2D Vector2D::operator*(float mult)
 	{
 		return Vector2D(this->x * mult, this->y * mult);
 	}

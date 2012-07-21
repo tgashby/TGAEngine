@@ -59,7 +59,5 @@ namespace TGA
 				textures.erase(textures.end() - 1);
 			}
 		}
-
-		delete texture;
 	}
 }
