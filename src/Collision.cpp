@@ -27,4 +27,13 @@ namespace TGA
          c2.handleCollision(c1);
       }
    }
+
+   void Collision::handleAllCollisions( Collidable& c1, std::vector<Collidable*> collection )
+   {
+      for (std::vector<Collidable*>::iterator i = collection.begin(); i < collection.end(); i++)
+      {
+         Collision::handleCollisions(c1, *(*i));
+      }
+   }
+
 }

@@ -168,17 +168,17 @@ namespace TGA
 		}
 	}
 
-	void Animation::draw(GLfloat xPos, GLfloat yPos)
-	{
-		// IF the texture exists
-		if(texture != NULL && frames.size() > 0)
-		{
-			BoundingBox tempRect = frames.at(currFrame).first;
+   void Animation::draw( GLfloat xPos, GLfloat yPos, bool flipped /*= false*/)
+   {
+      // IF the texture exists
+      if(texture != NULL && frames.size() > 0)
+      {
+         BoundingBox tempRect = frames.at(currFrame).first;
 
-			texture->drawSection(xPos, yPos, tempRect.getX(), tempRect.getY(), 
-            tempRect.getWidth(), tempRect.getHeight());
-		}
-	}
+         texture->drawSection(xPos, yPos, tempRect.getX(), tempRect.getY(), 
+            tempRect.getWidth(), tempRect.getHeight(), flipped);
+      }
+   }
 
 	GLuint Animation::getFrameCount()
 	{

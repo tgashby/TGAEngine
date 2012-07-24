@@ -102,72 +102,106 @@ namespace TGA
 		Singleton<TextureManager>::GetSingletonPtr()->removeTexture(this);
 	}
 
-	void Texture::draw(GLfloat xPos, GLfloat yPos)
-	{
-		glPushMatrix();
+   void Texture::draw( float xPos, float yPos, bool flipped /*= false*/)
+   {
+      glPushMatrix();
 
          glBindTexture(GL_TEXTURE_2D, texture);
 
          glLoadIdentity();
 
-		   glBegin(GL_QUADS);
+         glBegin(GL_QUADS);
 
-			   glTexCoord2f(0.0f, 0.0f);
-			   glVertex2f(xPos, yPos);
+            if (flipped)
+            {
+               glTexCoord2f(0.0f, 0.0f);
+               glVertex2f(xPos + width, yPos);
 
-			   glTexCoord2f(1.0f, 0.0f);
-			   glVertex2f(xPos + width, yPos);
+               glTexCoord2f(1.0f, 0.0f);
+               glVertex2f(xPos, yPos);
 
-			   glTexCoord2f(1.0f, 1.0f);
-			   glVertex2f(xPos + width, yPos + height);
-			
-			   glTexCoord2f(0.0f, 1.0f);
-			   glVertex2f(xPos, yPos + height);
+               glTexCoord2f(1.0f, 1.0f);
+               glVertex2f(xPos, yPos + height);
 
-		   glEnd();
+               glTexCoord2f(0.0f, 1.0f);
+               glVertex2f(xPos + width, yPos + height);
+            }
+            else
+            {
+               glTexCoord2f(0.0f, 0.0f);
+               glVertex2f(xPos, yPos);
+
+               glTexCoord2f(1.0f, 0.0f);
+               glVertex2f(xPos + width, yPos);
+
+               glTexCoord2f(1.0f, 1.0f);
+               glVertex2f(xPos + width, yPos + height);
+
+               glTexCoord2f(0.0f, 1.0f);
+               glVertex2f(xPos, yPos + height);
+            }
+
+         glEnd();
 
          glColor3f(1.0f, 1.0f, 1.0f);
 
-		glPopMatrix();
-	}
+      glPopMatrix();
+   }
 
-	void Texture::drawSection(GLfloat xPos, GLfloat yPos, SDL_Rect section)
-	{
-		drawSection(xPos, yPos, section.x, section.y, section.w, section.h);
-	}
+   void Texture::drawSection( float xPos, float yPos, SDL_Rect section, bool flipped /*= false*/)
+   {
+      drawSection(xPos, yPos, section.x, section.y, section.w, section.h, flipped);
+   }
 
-	void Texture::drawSection(GLfloat xPos, GLfloat yPos, int sectX, int sectY, int sectWidth, int sectHeight)
-	{
-		glPushMatrix();
+   void Texture::drawSection( float xPos, float yPos, int sectX, int sectY, int sectWidth, int sectHeight, bool flipped /*= false*/)
+   {
+      glPushMatrix();
 
          glMatrixMode(GL_TEXTURE);
 
          glLoadIdentity();
 
-         glScalef(1/(GLfloat)width, 1/(GLfloat)height, 1);
+         glScalef(1/(float)width, 1/(float)height, 1);
 
          glBindTexture(GL_TEXTURE_2D, texture);
 
-		   glBegin(GL_QUADS);
+         glBegin(GL_QUADS);
 
-			   glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
-			   glVertex2f(xPos, yPos);
+         if (flipped)
+         {
+            glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
+            glVertex2f(xPos + sectWidth, yPos);
 
-			   glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
-			   glVertex2f(xPos + sectWidth, yPos);
+            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
+            glVertex2f(xPos, yPos);
 
-			   glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
-			   glVertex2f(xPos + sectWidth, yPos + sectHeight);
+            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
+            glVertex2f(xPos, yPos + sectHeight);
 
-			   glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
-			   glVertex2f(xPos, yPos + sectHeight);
+            glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
+            glVertex2f(xPos + sectWidth, yPos + sectHeight);
+         }
+         else
+         {
+            glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
+            glVertex2f(xPos, yPos);
 
-		   glEnd();
+            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
+            glVertex2f(xPos + sectWidth, yPos);
+
+            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
+            glVertex2f(xPos + sectWidth, yPos + sectHeight);
+
+            glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
+            glVertex2f(xPos, yPos + sectHeight);
+         }
+
+         glEnd();
 
          glColor3f(1.0f, 1.0f, 1.0f);
 
-		glPopMatrix();
-	}
+      glPopMatrix();
+   }
 
 	GLsizei Texture::getWidth()
 	{

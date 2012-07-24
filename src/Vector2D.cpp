@@ -3,7 +3,7 @@
 
 namespace TGA
 {
-	Vector2D::Vector2D(float xComp, float yComp)
+	Vector2D::Vector2D(double xComp, double yComp)
 		: x(xComp), y(yComp) {}
 
 
@@ -43,7 +43,7 @@ namespace TGA
 		return result;
 	}
 
-	Vector2D Vector2D::operator*(float mult)
+	Vector2D Vector2D::operator*(double mult)
 	{
 		return Vector2D(this->x * mult, this->y * mult);
 	}
@@ -53,39 +53,44 @@ namespace TGA
 		return Vector2D(this->x / length(), this->y / length());
 	}
 
-	float Vector2D::dotProduct(Vector2D vec2)
+	double Vector2D::dotProduct(Vector2D vec2)
 	{
 		return this->x * vec2.x + this->y * vec2.y;
 	}
 
-	float Vector2D::length()
+	double Vector2D::length()
 	{
 		return sqrt(this->x * this->x + this->y * this->y);
 	}
 
-	float Vector2D::distanceFrom(Vector2D vec2)
+	double Vector2D::distanceFrom(Vector2D vec2)
 	{
 		return (*this - vec2).length();
 	}
 
-	float Vector2D::getX()
+	double Vector2D::getX()
 	{
 		return x;
 	}
 
-	float Vector2D::getY()
+	double Vector2D::getY()
 	{
 		return y;
 	}
 
-   void Vector2D::setX(float x)
+   void Vector2D::setX(double x)
    {
       this->x = x;
    }
 
-   void Vector2D::setY(float y)
+   void Vector2D::setY(double y)
    {
       this->y = y;
+   }
+
+   std::ostream& operator<<(std::ostream& os, const Vector2D& v)
+   {
+      return os << "(" << v.x << ", " << v.y << ")\n";
    }
 }
 
