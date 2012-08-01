@@ -50,9 +50,7 @@ namespace TGA
                // IF it is not running indefinitely
                if(repetitions != -1)
                {
-                  // This looks weird, I know. The way update is running, you get a "free"
-                  // full cycle, that's why I check 1 instead of 0.
-                  if(repetitions == 1) 
+                  if(repetitions == 0) 
                   {
                      done = true;
                      paused = true;
@@ -137,7 +135,16 @@ namespace TGA
 
 	void Animation::setRepetitions(int repetitions)
    {
-		this->repetitions = repetitions;
+      // This looks weird, I know. The way update is running, you get a "free"
+      // full cycle
+      if (repetitions > 0)
+      {
+         this->repetitions = repetitions - 1;
+      }
+      else
+      {
+         this->repetitions = repetitions;
+      }
       
       if (done)
       {
@@ -168,7 +175,7 @@ namespace TGA
 		}
 	}
 
-   void Animation::draw( GLfloat xPos, GLfloat yPos, bool flipped /*= false*/)
+   void Animation::draw( GLfloat xPos, GLfloat yPos, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
    {
       // IF the texture exists
       if(texture != NULL && frames.size() > 0)
@@ -176,7 +183,7 @@ namespace TGA
          BoundingBox tempRect = frames.at(currFrame).first;
 
          texture->drawSection(xPos, yPos, tempRect.getX(), tempRect.getY(), 
-            tempRect.getWidth(), tempRect.getHeight(), flipped);
+            tempRect.getWidth(), tempRect.getHeight(), scaleX, scaleY, rotation);
       }
    }
 

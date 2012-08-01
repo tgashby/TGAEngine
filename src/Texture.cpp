@@ -85,7 +85,7 @@ namespace TGA
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
-
+      
 		SDL_FreeSurface(image);
 
 		Singleton<TextureManager>::GetSingletonPtr()->addTexture(this);
@@ -102,103 +102,95 @@ namespace TGA
 		Singleton<TextureManager>::GetSingletonPtr()->removeTexture(this);
 	}
 
-   void Texture::draw( float xPos, float yPos, bool flipped /*= false*/)
+   void Texture::draw( float xPos, float yPos, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
    {
       glPushMatrix();
 
-         glBindTexture(GL_TEXTURE_2D, texture);
+      glMatrixMode(GL_TEXTURE);
 
-         glLoadIdentity();
+      glBindTexture(GL_TEXTURE_2D, texture);
 
-         glBegin(GL_QUADS);
+      glLoadIdentity();
 
-            if (flipped)
-            {
-               glTexCoord2f(0.0f, 0.0f);
-               glVertex2f(xPos + width, yPos);
+      glMatrixMode(GL_MODELVIEW);
 
-               glTexCoord2f(1.0f, 0.0f);
-               glVertex2f(xPos, yPos);
+      glTranslatef(Singleton<Camera>::GetSingletonPtr()->getX(), Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
 
-               glTexCoord2f(1.0f, 1.0f);
-               glVertex2f(xPos, yPos + height);
+      glTranslatef(xPos + (float)width / 2, 0, 0);
+      glScalef(scaleX, scaleY, 1);
+      if (rotation != 0)
+      {
+         glRotatef(rotation, 0, 0, 1);
+      }
+      glTranslatef(-(xPos + (float)width / 2), 0, 0);
 
-               glTexCoord2f(0.0f, 1.0f);
-               glVertex2f(xPos + width, yPos + height);
-            }
-            else
-            {
-               glTexCoord2f(0.0f, 0.0f);
-               glVertex2f(xPos, yPos);
+      glBegin(GL_QUADS);
 
-               glTexCoord2f(1.0f, 0.0f);
-               glVertex2f(xPos + width, yPos);
+         glTexCoord2f(0.0f, 0.0f);
+         glVertex2f(xPos, yPos);
 
-               glTexCoord2f(1.0f, 1.0f);
-               glVertex2f(xPos + width, yPos + height);
+         glTexCoord2f(1.0f, 0.0f);
+         glVertex2f(xPos + width, yPos);
 
-               glTexCoord2f(0.0f, 1.0f);
-               glVertex2f(xPos, yPos + height);
-            }
+         glTexCoord2f(1.0f, 1.0f);
+         glVertex2f(xPos + width, yPos + height);
 
-         glEnd();
+         glTexCoord2f(0.0f, 1.0f);
+         glVertex2f(xPos, yPos + height);
 
-         glColor3f(1.0f, 1.0f, 1.0f);
+      glEnd();
+
+      glColor3f(1.0f, 1.0f, 1.0f);
 
       glPopMatrix();
    }
 
-   void Texture::drawSection( float xPos, float yPos, SDL_Rect section, bool flipped /*= false*/)
+   void Texture::drawSection( float xPos, float yPos, SDL_Rect section, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
    {
-      drawSection(xPos, yPos, section.x, section.y, section.w, section.h, flipped);
+      drawSection(xPos, yPos, section.x, section.y, section.w, section.h, scaleX, scaleY, rotation);
    }
 
-   void Texture::drawSection( float xPos, float yPos, int sectX, int sectY, int sectWidth, int sectHeight, bool flipped /*= false*/)
+   void Texture::drawSection( float xPos, float yPos, int sectX, int sectY, int sectWidth, int sectHeight, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
    {
       glPushMatrix();
 
-         glMatrixMode(GL_TEXTURE);
+      glMatrixMode(GL_TEXTURE);
 
-         glLoadIdentity();
+      glBindTexture(GL_TEXTURE_2D, texture);
 
-         glScalef(1/(float)width, 1/(float)height, 1);
+      glLoadIdentity();
 
-         glBindTexture(GL_TEXTURE_2D, texture);
+      glScalef(1/(float)width, 1/(float)height, 1);
 
-         glBegin(GL_QUADS);
+      glMatrixMode(GL_MODELVIEW);
 
-         if (flipped)
-         {
-            glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
-            glVertex2f(xPos + sectWidth, yPos);
+      glTranslatef(Singleton<Camera>::GetSingletonPtr()->getX(), Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
 
-            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
-            glVertex2f(xPos, yPos);
+      glTranslatef(xPos + (float)sectWidth / 2, 0, 0);
+      glScalef(scaleX, scaleY, 1);
+      if (rotation != 0)
+      {
+         glRotatef(rotation, 0, 0, 1);
+      }
+      glTranslatef(-(xPos + (float)sectWidth / 2), 0, 0);
 
-            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
-            glVertex2f(xPos, yPos + sectHeight);
+      glBegin(GL_QUADS);
 
-            glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
-            glVertex2f(xPos + sectWidth, yPos + sectHeight);
-         }
-         else
-         {
-            glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
-            glVertex2f(xPos, yPos);
+         glTexCoord2f((GLfloat)sectX, (GLfloat)sectY);
+         glVertex2f(xPos, yPos);
 
-            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
-            glVertex2f(xPos + sectWidth, yPos);
+         glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)sectY);
+         glVertex2f(xPos + sectWidth, yPos);
 
-            glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
-            glVertex2f(xPos + sectWidth, yPos + sectHeight);
+         glTexCoord2f((GLfloat)(sectX + sectWidth), (GLfloat)(sectY + sectHeight));
+         glVertex2f(xPos + sectWidth, yPos + sectHeight);
 
-            glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
-            glVertex2f(xPos, yPos + sectHeight);
-         }
+         glTexCoord2f((GLfloat)sectX, (GLfloat)(sectY + sectHeight));
+         glVertex2f(xPos, yPos + sectHeight);
 
-         glEnd();
+      glEnd();
 
-         glColor3f(1.0f, 1.0f, 1.0f);
+      glColor3f(1.0f, 1.0f, 1.0f);
 
       glPopMatrix();
    }

@@ -4,6 +4,8 @@ namespace TGA
 {
 	GraphicsManager::GraphicsManager()
 	{
+      glScissor(0, 0, screenWidth, screenHeight);
+
 		// Set loaded to false
 		isLoaded = false;
 	}
@@ -121,13 +123,13 @@ namespace TGA
       glClearColor( 0.5f, 0.5f, 0.5f, 0.0f );
       glClearDepth( 0.0f );
       glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-      //glEnable( GL_DEPTH_TEST );
-      //glDepthFunc( GL_ALWAYS );
-      //glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
+      glEnable( GL_DEPTH_TEST );
+      glDepthFunc( GL_ALWAYS );
+      glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
 
       glDisable(GL_LIGHTING);
 
-      glDisable( GL_DEPTH_TEST );
+      //glDisable( GL_DEPTH_TEST );
 
       glEnable(GL_BLEND);
       glEnable(GL_TEXTURE_2D);

@@ -182,10 +182,12 @@ namespace TGA
 		*
 		* Draws the current frame at the specified position.
 		* @param xPos - the x position of the point at which to draw.
-		* @param yPos - the y position of the point at which to draw.
-      * @param flipped - whether the image is flipped
+      * @param yPos - the y position of the point at which to draw.
+      * @param scaleX - a scale factor in X
+      * @param scaleY - a scale factor in Y
+      * @param rotation - a rotation, in degrees
 		*/
-      void draw(GLfloat xPos, GLfloat yPos, bool flipped = false);
+      void draw(GLfloat xPos, GLfloat yPos, float scaleX = 1, float scaleY = 1, float rotation = 0);
 
 		/**
 		* getFrameCount

@@ -8,6 +8,8 @@
 #pragma once
 
 #include "ProjIncludes.h"
+#include "Singleton.h"
+#include "Camera.h"
 
 namespace TGA
 {
@@ -72,9 +74,11 @@ namespace TGA
 		* Draws the entire texture at a location.
       * @param xPos - the x position at which to start drawing
       * @param yPos - the y position at which to start drawing
-      * @param flipped - whether to flip the image or not
+      * @param scaleX - a scale factor in X
+      * @param scaleY - a scale factor in Y
+      * @param rotation - a rotation, in degrees
 		*/
-		void draw(float xPos, float yPos, bool flipped = false);
+		void draw(float xPos, float yPos, float scaleX = 1, float scaleY = 1, float rotation = 0);
 
 		/**
 		* drawSection
@@ -83,10 +87,12 @@ namespace TGA
       * sprite sheet.
 		* @param xPos - the x position at which to start drawing
 		* @param yPos - the y position at which to start drawing
-		* @param section - a rectangle representation of the section to draw
-      * @param flipped - whether the image is flipped
+      * @param section - a rectangle representation of the section to draw
+      * @param scaleX - a scale factor in X
+      * @param scaleY - a scale factor in Y
+      * @param rotation - a rotation, in degrees
 		*/
-      void drawSection(float xPos, float yPos, SDL_Rect section, bool flipped = false);
+      void drawSection(float xPos, float yPos, SDL_Rect section, float scaleX = 1, float scaleY = 1, float rotation = 0);
 
 		/**
 		* drawSection
@@ -98,11 +104,13 @@ namespace TGA
 		* @param sectX - the x position on the texture to start the section
 		* @param sectY - the y position on the texture to start the section
 		* @param sectWidth - the width of the section
-		* @param sectHeight - the height of the section
-      * @param flipped - whether the image is flipped
+      * @param sectHeight - the height of the section
+      * @param scaleX - a scale factor in X
+      * @param scaleY - a scale factor in Y
+      * @param rotation - a rotation, in degrees
 		*/
 		void drawSection(float xPos, float yPos, int sectX, int sectY,
-         int sectWidth, int sectHeight, bool flipped = false);
+         int sectWidth, int sectHeight, float scaleX = 1, float scaleY = 1, float rotation = 0);
 
 		/**
 		* getWidth

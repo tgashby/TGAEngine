@@ -4,8 +4,8 @@ namespace TGA
 {
 	Camera::Camera()
 	{
+      xPos = yPos = 0;
 	}
-
 
 	Camera::~Camera(void)
 	{
@@ -17,7 +17,7 @@ namespace TGA
 		xPos += xVal;
 
 		// Update camera yPos (-=)
-		yPos = yVal;
+		yPos -= yVal;
 	}
 
 	void Camera::setPosition(GLfloat xPos, GLfloat yPos)
