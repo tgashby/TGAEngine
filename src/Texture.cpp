@@ -114,7 +114,7 @@ namespace TGA
 
       glMatrixMode(GL_MODELVIEW);
 
-      glTranslatef(Singleton<Camera>::GetSingletonPtr()->getX(), Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
+      glTranslatef(-Singleton<Camera>::GetSingletonPtr()->getX(), -Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
 
       glTranslatef(xPos + (float)width / 2, 0, 0);
       glScalef(scaleX, scaleY, 1);
@@ -164,7 +164,7 @@ namespace TGA
 
       glMatrixMode(GL_MODELVIEW);
 
-      glTranslatef(Singleton<Camera>::GetSingletonPtr()->getX(), Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
+      glTranslatef(-Singleton<Camera>::GetSingletonPtr()->getX(), -Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
 
       glTranslatef(xPos + (float)sectWidth / 2, 0, 0);
       glScalef(scaleX, scaleY, 1);
