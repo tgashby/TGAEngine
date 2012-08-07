@@ -240,6 +240,15 @@
     <ClInclude Include="..\include\Timer.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Sound.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SoundManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Music.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Animation.cpp">
@@ -279,6 +288,15 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Timer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sound.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SoundManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Music.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

@@ -51,7 +51,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\include\SDL;..\include\SDL_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\SDL_mixer;..\include;..\include\SDL;..\include\SDL_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -130,8 +130,11 @@ robocopy $(OutDir)..\include\ $(OutDir)..\..\Libraries\TGAEngine\include\ *.h</C
     <ClInclude Include="..\include\GraphicsManager.h" />
     <ClInclude Include="..\include\InputManager.h" />
     <ClInclude Include="..\include\Key.h" />
+    <ClInclude Include="..\include\Music.h" />
     <ClInclude Include="..\include\ProjIncludes.h" />
     <ClInclude Include="..\include\Singleton.h" />
+    <ClInclude Include="..\include\Sound.h" />
+    <ClInclude Include="..\include\SoundManager.h" />
     <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\TextureManager.h" />
     <ClInclude Include="..\include\Timer.h" />
@@ -212,6 +215,9 @@ robocopy $(OutDir)..\include\ $(OutDir)..\..\Libraries\TGAEngine\include\ *.h</C
     </ClCompile>
     <ClCompile Include="..\src\InputManager.cpp">
     </ClCompile>
+    <ClCompile Include="..\src\Music.cpp" />
+    <ClCompile Include="..\src\Sound.cpp" />
+    <ClCompile Include="..\src\SoundManager.cpp" />
     <ClCompile Include="..\src\Texture.cpp">
     </ClCompile>
     <ClCompile Include="..\src\TextureManager.cpp">

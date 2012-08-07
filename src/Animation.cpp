@@ -145,11 +145,8 @@ namespace TGA
       {
          this->repetitions = repetitions;
       }
-      
-      if (done)
-      {
-         reset();
-      }
+
+      reset();
 	}
 
 	void Animation::setTexture(Texture* texture)
@@ -191,7 +188,12 @@ namespace TGA
 	{
 		return frames.size();
 	}
-   
+
+   GLuint Animation::getFrameNum()
+   {
+      return currFrame;
+   }
+
    BoundingBox Animation::getCurrentFrameDimensions()
    {
       return frames.at(currFrame).first;

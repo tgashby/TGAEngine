@@ -20,6 +20,7 @@ namespace TGA
 		GameCamera = Singleton<Camera>::GetSingletonPtr();
 		Graphics = Singleton<GraphicsManager>::GetSingletonPtr();
 		Input = Singleton<InputManager>::GetSingletonPtr();
+      Sounds = Singleton<SoundManager>::GetSingletonPtr();
 	}
 
 	void Engine::shutdown()
@@ -29,6 +30,7 @@ namespace TGA
       delete GameCamera;
       delete Graphics;
       delete Input;
+      delete Sounds;
 	}
 
 }
