@@ -4,7 +4,7 @@ namespace TGA
 {
 	GraphicsManager::GraphicsManager()
 	{
-      glScissor(0, 0, screenWidth, screenHeight);
+      //glScissor(0, 0, screenWidth, screenHeight);
 
 		// Set loaded to false
 		isLoaded = false;
