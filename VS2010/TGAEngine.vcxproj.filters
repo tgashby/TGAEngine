@@ -249,6 +249,12 @@
     <ClInclude Include="..\include\Music.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\State.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\StateManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Animation.cpp">
@@ -297,6 +303,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Music.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\StateManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

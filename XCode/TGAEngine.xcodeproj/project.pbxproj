@@ -314,7 +314,7 @@
 				0C2701571C2D08776C2327CD /* Resources */,
 				333F2E9428903EB83E7C5CFB /* Sources */,
 				14B246BD5F1766061EE019BC /* Frameworks */,
-				AE6A66FE15A7991A000CBA49 /* ShellScript */,
+				AE7FEAC715DED4FE00380CE5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,7 +331,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "TGAEngine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -360,7 +360,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AE6A66FE15A7991A000CBA49 /* ShellScript */ = {
+		AE7FEAC715DED4FE00380CE5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,7 +371,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/XCode/build/Debug/libTGAEngine.a /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/lib/TGAEngine/\ncp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/include/* /Users/tgashby/Google\\ Drive/Projects/Animation-Calibrator/include/TGAEngine/\nexit 0";
+			shellScript = "cp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/include/*.h /Users/tgashby/Google\\ Drive/Projects/Sandstorms/include/TGAEngine\ncp /Users/tgashby/Google\\ Drive/Projects/TGAEngine/XCode/build/Debug/libTGAEngine.a /Users/tgashby/Google\\ Drive/Projects/Sandstorms/lib/TGAEngine/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -432,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -470,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
