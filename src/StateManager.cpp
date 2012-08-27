@@ -6,25 +6,38 @@
  * 
  */
 #include "StateManager.h"
-#include "State.h"
+#include <iostream>
 
 
-void StateManager::PushState( State* state )
+namespace TGA
 {
-
-}
-
-void StateManager::UpdateCurrentState()
-{
-
-}
-
-void StateManager::DrawCurrentState()
-{
-
-}
-
-void StateManager::PopState()
-{
-
+   void StateManager::PushState( State* state )
+   {
+      states.push_back(state);
+   }
+   
+   void StateManager::UpdateCurrentState()
+   {
+      if (!states.front()->update())
+      {
+         PopState();
+      }
+   }
+   
+   void StateManager::DrawCurrentState()
+   {
+      states.front()->draw();
+   }
+   
+   void StateManager::PopState()
+   {
+      if (!states.empty())
+      {
+         states.pop_back();
+      }
+      else
+      {
+         std::cout << "ERROR: Last state trying to be popped.\n";
+      }
+   }
 }

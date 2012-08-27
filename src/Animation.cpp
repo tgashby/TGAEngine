@@ -50,7 +50,7 @@ namespace TGA
                // IF it is not running indefinitely
                if(repetitions != -1)
                {
-                  if(repetitions == 0) 
+                  if(repetitions <= 0)
                   {
                      done = true;
                      paused = true;
@@ -141,7 +141,7 @@ namespace TGA
       {
          this->repetitions = repetitions - 1;
       }
-      else
+      else // If 0 or -1, leave it alone
       {
          this->repetitions = repetitions;
       }
@@ -172,7 +172,7 @@ namespace TGA
 		}
 	}
 
-   void Animation::draw( GLfloat xPos, GLfloat yPos, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
+   void Animation::draw(GLfloat xPos, GLfloat yPos, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/, float redTint /*= 1.0*/, float greenTint /*= 1.0*/, float blueTint /*= 1.0*/)
    {
       // IF the texture exists
       if(texture != NULL && frames.size() > 0)
@@ -180,7 +180,7 @@ namespace TGA
          BoundingBox tempRect = frames.at(currFrame).first;
 
          texture->drawSection(xPos, yPos, tempRect.getX(), tempRect.getY(), 
-            tempRect.getWidth(), tempRect.getHeight(), scaleX, scaleY, rotation);
+            tempRect.getWidth(), tempRect.getHeight(), scaleX, scaleY, rotation, redTint, greenTint, blueTint);
       }
    }
 

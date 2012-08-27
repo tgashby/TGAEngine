@@ -102,7 +102,7 @@ namespace TGA
 		Singleton<TextureManager>::GetSingletonPtr()->removeTexture(this);
 	}
 
-   void Texture::draw( float xPos, float yPos, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
+   void Texture::draw( float xPos, float yPos, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/, float redTint /*= 1.0*/, float greenTint /*= 1.0*/, float blueTint /*= 1.0*/)
    {
       glPushMatrix();
 
@@ -124,6 +124,8 @@ namespace TGA
       }
       glTranslatef(-(xPos + (float)width / 2), 0, 0);
 
+      glColor3f(redTint, greenTint, blueTint);
+      
       glBegin(GL_QUADS);
 
          glTexCoord2f(0.0f, 0.0f);
@@ -145,12 +147,12 @@ namespace TGA
       glPopMatrix();
    }
 
-   void Texture::drawSection( float xPos, float yPos, SDL_Rect section, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
+   void Texture::drawSection(float xPos, float yPos, SDL_Rect section, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/, float redTint /*= 1.0*/, float greenTint /*= 1.0*/, float blueTint /*= 1.0*/)
    {
-      drawSection(xPos, yPos, section.x, section.y, section.w, section.h, scaleX, scaleY, rotation);
+      drawSection(xPos, yPos, section.x, section.y, section.w, section.h, scaleX, scaleY, rotation, redTint, greenTint, blueTint);
    }
 
-   void Texture::drawSection( float xPos, float yPos, int sectX, int sectY, int sectWidth, int sectHeight, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/ )
+   void Texture::drawSection(float xPos, float yPos, int sectX, int sectY, int sectWidth, int sectHeight, float scaleX /*= 1*/, float scaleY /*= 1*/, float rotation /*= 0*/, float redTint /*= 1.0*/, float greenTint /*= 1.0*/, float blueTint /*= 1.0*/)
    {
       glPushMatrix();
 
@@ -166,6 +168,8 @@ namespace TGA
 
       glTranslatef(-Singleton<Camera>::GetSingletonPtr()->getX(), -Singleton<Camera>::GetSingletonPtr()->getY(), 0.0f);
 
+      glColor3f(redTint, greenTint, blueTint);
+      
       glTranslatef(xPos + (float)sectWidth / 2, 0, 0);
       glScalef(scaleX, scaleY, 1);
       if (rotation != 0)

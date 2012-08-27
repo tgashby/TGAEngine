@@ -25,6 +25,7 @@
 		AEB38A1615BE6CA9007CE613 /* Collidable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB38A1215BE6CA9007CE613 /* Collidable.cpp */; };
 		AEB38A1715BE6CA9007CE613 /* Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB38A1315BE6CA9007CE613 /* Collision.cpp */; };
 		AEB38A1815BE6CA9007CE613 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB38A1415BE6CA9007CE613 /* Timer.cpp */; };
+		AECC0F7E15EAFC6800951AD0 /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AECC0F7D15EAFC6800951AD0 /* StateManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +111,7 @@
 		76FA51E928103E4F6B5C6C23 /* GraphicsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsManager.h; sourceTree = "<group>"; };
 		79967694256115315463362E /* libTGAEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTGAEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5D0FBC05F527251EAF0BC5 /* SDL_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_log.h; sourceTree = "<group>"; };
-		AE6A66FB15A79729000CBA49 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		AE6A66FB15A79729000CBA49 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
 		AEB2B5F615D177ED00BD9B25 /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		AEB2B5F815D177ED00BD9B25 /* SDL_mixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_mixer.h; sourceTree = "<group>"; };
 		AEB2B5F915D177ED00BD9B25 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
@@ -126,6 +127,9 @@
 		AEB38A1215BE6CA9007CE613 /* Collidable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collidable.cpp; sourceTree = "<group>"; };
 		AEB38A1315BE6CA9007CE613 /* Collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		AEB38A1415BE6CA9007CE613 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		AECC0F7B15EAFC5B00951AD0 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		AECC0F7C15EAFC5B00951AD0 /* StateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateManager.h; sourceTree = "<group>"; };
+		AECC0F7D15EAFC6800951AD0 /* StateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateManager.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,21 +148,22 @@
 		0C0D42BA4DC95E160EF05669 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AEB2B5FC15D177FD00BD9B25 /* Music.cpp */,
-				AEB2B5FD15D177FD00BD9B25 /* Sound.cpp */,
-				AEB2B5FE15D177FD00BD9B25 /* SoundManager.cpp */,
-				AEB38A1115BE6CA9007CE613 /* BoundingBox.cpp */,
-				AEB38A1215BE6CA9007CE613 /* Collidable.cpp */,
-				AEB38A1315BE6CA9007CE613 /* Collision.cpp */,
-				AEB38A1415BE6CA9007CE613 /* Timer.cpp */,
 				199930B151E662F96FDC66D1 /* Animation.cpp */,
 				1B327F0471814F0D0A037538 /* AnimationManager.cpp */,
+				AEB38A1115BE6CA9007CE613 /* BoundingBox.cpp */,
 				1D0357B67AAC69FD7CFE1ADD /* Camera.cpp */,
+				AEB38A1215BE6CA9007CE613 /* Collidable.cpp */,
+				AEB38A1315BE6CA9007CE613 /* Collision.cpp */,
 				27892F6F297C0FCD0FE04BEF /* Engine.cpp */,
 				3468596450B555FC43B6140B /* GraphicsManager.cpp */,
 				1B9D01294D48548928835344 /* InputManager.cpp */,
+				AEB2B5FC15D177FD00BD9B25 /* Music.cpp */,
+				AEB2B5FD15D177FD00BD9B25 /* Sound.cpp */,
+				AEB2B5FE15D177FD00BD9B25 /* SoundManager.cpp */,
+				AECC0F7D15EAFC6800951AD0 /* StateManager.cpp */,
 				340A1AC3042E74F846D978EC /* Texture.cpp */,
 				04FF2CE648330C6C30615C46 /* TextureManager.cpp */,
+				AEB38A1415BE6CA9007CE613 /* Timer.cpp */,
 				3F7D4990112B49DF0A01595B /* Vector2D.cpp */,
 			);
 			name = src;
@@ -168,11 +173,10 @@
 		0C8245BF05EB1B9622F46DAA /* TGAEngine */ = {
 			isa = PBXGroup;
 			children = (
-				AE6A66FB15A79729000CBA49 /* SDL2.framework */,
 				5469462B35192C34278715CE /* include */,
 				0C0D42BA4DC95E160EF05669 /* src */,
-				6FA2176501EF2C4323AC7BC4 /* Frameworks */,
 				3D3D0679027706C16F7C416F /* Products */,
+				6FA2176501EF2C4323AC7BC4 /* Frameworks */,
 			);
 			name = TGAEngine;
 			sourceTree = "<group>";
@@ -261,28 +265,30 @@
 		5469462B35192C34278715CE /* include */ = {
 			isa = PBXGroup;
 			children = (
-				AEB2B5F615D177ED00BD9B25 /* Music.h */,
-				AEB2B5F715D177ED00BD9B25 /* SDL_mixer */,
-				AEB2B5F915D177ED00BD9B25 /* Sound.h */,
-				AEB2B5FA15D177ED00BD9B25 /* SoundManager.h */,
-				AEB38A0C15BE6C90007CE613 /* BoundingBox.h */,
-				AEB38A0D15BE6C90007CE613 /* Collidable.h */,
-				AEB38A0E15BE6C90007CE613 /* Collision.h */,
-				AEB38A0F15BE6C90007CE613 /* Timer.h */,
 				3D33032F25564D9C4D930C30 /* Animation.h */,
 				5B36424901591C2A3B955E42 /* AnimationManager.h */,
+				AEB38A0C15BE6C90007CE613 /* BoundingBox.h */,
 				034362A35A985A6D61DA46CE /* Camera.h */,
+				AEB38A0D15BE6C90007CE613 /* Collidable.h */,
+				AEB38A0E15BE6C90007CE613 /* Collision.h */,
 				1D1D168F3DB95CFA3E6305E5 /* Engine.h */,
 				76FA51E928103E4F6B5C6C23 /* GraphicsManager.h */,
 				15A44F651EA57EB935C2610A /* InputManager.h */,
 				675D2C147454615E73C31C77 /* Key.h */,
+				AEB2B5F615D177ED00BD9B25 /* Music.h */,
 				5AF534BB1FAE5A3B62542C7F /* ProjIncludes.h */,
-				32EF7B470FEF4ACF0E193A78 /* SDL */,
-				15032E960BD019D268C90E5F /* SDL_image */,
 				6389495A4773646815F60168 /* Singleton.h */,
+				AEB2B5F915D177ED00BD9B25 /* Sound.h */,
+				AEB2B5FA15D177ED00BD9B25 /* SoundManager.h */,
+				AECC0F7B15EAFC5B00951AD0 /* State.h */,
+				AECC0F7C15EAFC5B00951AD0 /* StateManager.h */,
 				594B081B3CA7020F2A68393B /* Texture.h */,
 				5766036848285F0423484D59 /* TextureManager.h */,
+				AEB38A0F15BE6C90007CE613 /* Timer.h */,
 				4E4140D031F4115D7CED2C5E /* Vector2D.h */,
+				32EF7B470FEF4ACF0E193A78 /* SDL */,
+				15032E960BD019D268C90E5F /* SDL_image */,
+				AEB2B5F715D177ED00BD9B25 /* SDL_mixer */,
 			);
 			name = include;
 			path = ../include;
@@ -291,6 +297,7 @@
 		6FA2176501EF2C4323AC7BC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6A66FB15A79729000CBA49 /* SDL2.framework */,
 				6F8D4A64078810E422627FFC /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -396,6 +403,7 @@
 				AEB2B5FF15D177FD00BD9B25 /* Music.cpp in Sources */,
 				AEB2B60015D177FD00BD9B25 /* Sound.cpp in Sources */,
 				AEB2B60115D177FD00BD9B25 /* SoundManager.cpp in Sources */,
+				AECC0F7E15EAFC6800951AD0 /* StateManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
