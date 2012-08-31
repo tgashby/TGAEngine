@@ -28,8 +28,12 @@ namespace TGA
 				break;
 
 			case SDL_MOUSEBUTTONUP:
-				SDL_GetMouseState(&mouseX, &mouseY);
+            mouseButtonDown = false;
 				break;
+               
+         case SDL_MOUSEBUTTONDOWN:
+            mouseButtonDown = true;
+            break;
 
          case SDL_MOUSEMOTION:
             SDL_GetMouseState(&mouseX, &mouseY);
@@ -47,12 +51,13 @@ namespace TGA
 		return true;
 	}
 
-	SDL_Point InputManager::getMouseCoords()
+	Vector2D InputManager::getMouseCoords()
 	{
-		SDL_Point pt;
-		pt.x = mouseX;
-		pt.y = mouseY;
-
-		return pt;
+		return Vector2D(mouseX, mouseY);
 	}
+   
+   bool InputManager::mouseDown()
+   {
+      return mouseButtonDown;
+   }
 };
