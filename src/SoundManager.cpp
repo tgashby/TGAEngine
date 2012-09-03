@@ -89,4 +89,11 @@ namespace TGA
       music.clear();
    }
 
+   void SoundManager::pauseAllSounds()
+   {
+      for (std::map<std::string, Sound*>::iterator i = sounds.begin(); i != sounds.end(); i++)
+      {
+         (*i).second->pause();
+      }
+   }
 }

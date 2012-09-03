@@ -2,7 +2,11 @@
 
 namespace TGA
 {
-	InputManager::InputManager() {}
+	InputManager::InputManager() 
+   {
+      mouseButtonDown = false;
+      mouseX = mouseY = 0;
+   }
 
 	InputManager::~InputManager() {}
 

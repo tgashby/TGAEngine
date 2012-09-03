@@ -170,13 +170,13 @@ namespace TGA
 
       glColor3f(redTint, greenTint, blueTint);
       
-      glTranslatef(xPos + (float)sectWidth / 2, 0, 0);
+      glTranslatef(xPos + (float)sectWidth / 2, yPos + (float)sectHeight / 2, 0);
       glScalef(scaleX, scaleY, 1);
       if (rotation != 0)
       {
          glRotatef(rotation, 0, 0, 1);
       }
-      glTranslatef(-(xPos + (float)sectWidth / 2), 0, 0);
+      glTranslatef(-(xPos + (float)sectWidth / 2), -(yPos + (float)sectHeight / 2), 0);
 
       glBegin(GL_QUADS);
 
