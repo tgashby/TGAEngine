@@ -24,14 +24,7 @@ namespace TGA
    {
       if (soundChannel != -1)
       {
-         if (Mix_Paused(soundChannel))
-         {
-            Mix_Resume(soundChannel);
-         }
-         else
-         {
-            soundChannel = Mix_PlayChannel(soundChannel, sound, loops);
-         }
+         soundChannel = Mix_PlayChannel(soundChannel, sound, loops);
       }
       else
       {
